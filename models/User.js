@@ -4,10 +4,10 @@ const { model, Schema } = mongoose
 const userSchema = Schema({
   username: String,
   passwordHash: String,
-  score: {
+  score: [{
     type: Schema.Types.ObjectId,
     ref: 'Score'
-  }
+  }]
 })
 
 userSchema.set('toJSON', {

@@ -4,10 +4,10 @@ const { model, Schema } = mongoose
 const scoreSchema = new Schema({
   score: Number,
   date: Date,
-  user: {
+  user: [{
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  }]
 })
 
 scoreSchema.set('toJSON', {
