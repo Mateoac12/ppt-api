@@ -5,7 +5,11 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
 scoreRouter.get('/', async (_, response) => {
-  const allScores = await Score.find({})
+  const allScores = await Score.find({}).populate('user', {
+    score: 1,
+    username: 1,
+    _id: 0
+  })
   response.json(allScores)
 })
 

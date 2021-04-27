@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const { model, Schema } = mongoose
 
 const userSchema = Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   passwordHash: String,
   score: [{
     type: Schema.Types.ObjectId,
